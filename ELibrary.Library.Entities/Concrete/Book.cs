@@ -16,7 +16,7 @@ namespace ELibrary.Library.Entities.Concrete
         public DateTime DateOfSale { get; set; }
         public int PageNumber { get; set; }
         public string BookType { get; set; }
-        public bool IsRead { get; set; }
+
       
 
 

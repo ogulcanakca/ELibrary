@@ -23,7 +23,6 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework.Mapping
             Property(x => x.DateOfSale).HasColumnName("DateOfSale");
             Property(x => x.PageNumber).HasColumnName("PageNumber");
             Property(x => x.BookType).HasColumnName("BookType");
-            Property(x => x.IsRead).HasColumnName("IsRead");
 
         }
       

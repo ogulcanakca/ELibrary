@@ -17,6 +17,7 @@ namespace ELibrary.Library.Entities.Concrete
         public string Email { get; set; }
         public int BookId { get; set; }
         public DateTime DateOfGetting { get; set; }
-
+        public DateTime DateOfFinishing { get; set; }
+        public bool IsRead { get; set; }
     }
 }
