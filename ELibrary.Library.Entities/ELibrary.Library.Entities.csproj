@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComplexTypes\BookDetail.cs" />
     <Compile Include="Concrete\Book.cs" />
     <Compile Include="Concrete\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

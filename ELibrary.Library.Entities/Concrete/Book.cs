@@ -13,7 +13,8 @@ namespace ELibrary.Library.Entities.Concrete
         public string BookName { get; set; }
         public string Author { get; set; }
         public string Translator { get; set; }
-        public DateTime DateOfSale { get; set; }
+        public DateTime DateOfGetting { get; set; }
+        public DateTime DateOfFinishing { get; set; }
         public int PageNumber { get; set; }
         public string BookType { get; set; }
 

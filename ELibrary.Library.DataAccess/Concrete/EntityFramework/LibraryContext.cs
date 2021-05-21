@@ -16,9 +16,12 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework
             Database.SetInitializer<LibraryContext>(null);
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Person> People { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new BookMap());
+            modelBuilder.Configurations.Add(new PersonMap());
+
         }
     }
 }

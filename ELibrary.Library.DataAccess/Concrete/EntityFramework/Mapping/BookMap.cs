@@ -12,15 +12,14 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework.Mapping
     {
         public BookMap()
         {
-            
-
             ToTable(@"Books", @"dbo");
             HasKey(x => x.BookId);
             Property(x => x.BookId).HasColumnName("BookId");
             Property(x => x.BookName).HasColumnName("BookName");
             Property(x => x.Author).HasColumnName("Author");
             Property(x => x.Translator).HasColumnName("Translator");
-            Property(x => x.DateOfSale).HasColumnName("DateOfSale");
+            Property(x => x.DateOfGetting).HasColumnName("DateOfGetting");
+            Property(x => x.DateOfFinishing).HasColumnName("DateOfFinishing");
             Property(x => x.PageNumber).HasColumnName("PageNumber");
             Property(x => x.BookType).HasColumnName("BookType");
 

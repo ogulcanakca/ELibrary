@@ -52,9 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IBookDal.cs" />
+    <Compile Include="Abstract\IPersonDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfBookDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfPersonDal.cs" />
     <Compile Include="Concrete\EntityFramework\LibraryContext.cs" />
     <Compile Include="Concrete\EntityFramework\Mapping\BookMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\PersonMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace ELibrary.Library.DataAccess.Abstract
 {
-    public interface IBookDal:IEntityRepository<Book>
+    public interface IPersonDal : IEntityRepository<Person>
     {
-        List<BookDetail> GetBookDetails();
     }
 }
