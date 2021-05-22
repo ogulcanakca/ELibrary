@@ -1,4 +1,5 @@
 ﻿using ELibrary.Library.Business.Abstract;
+using ELibrary.Library.Business.ValidationRules.FluentValidation;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
 using System;
@@ -16,6 +17,7 @@ namespace ELibrary.Library.Business.Managers
         {
             _bookDal = bookDal;
         }
+        [FluentValidationAspect(typeof(BookValidator))]
         public Book Add(Book book)
         {
             return _bookDal.Add(book);
@@ -35,7 +37,7 @@ namespace ELibrary.Library.Business.Managers
         {
             return _bookDal.Get(p=>p.BookId==bookId);
         }
-
+        [FluentValidationAspect(typeof(BookValidator))]
         public Book Update(Book book)
         {
             return _bookDal.Update(book);

@@ -1,4 +1,5 @@
 ﻿using ELibrary.Library.Business.Abstract;
+using ELibrary.Library.Business.ValidationRules.FluentValidation;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
 using System;
@@ -16,6 +17,7 @@ namespace ELibrary.Library.Business.Managers
         {
             _personDal = personDal;
         }
+        [FluentValidationAspect(typeof(PersonValidator))]
         public Person Add(Person person)
         {
             return _personDal.Add(person);
@@ -23,7 +25,7 @@ namespace ELibrary.Library.Business.Managers
 
         public void Delete(Person person)
         {
-            _personDal.Add(person);
+            _personDal.Delete(person);
 
         }
 
@@ -38,7 +40,7 @@ namespace ELibrary.Library.Business.Managers
             return _personDal.Get(p=>p.Id ==Id);
 
         }
-
+        [FluentValidationAspect(typeof(PersonValidator))]
         public Person Update(Person person)
         {
             return _personDal.Update(person);
