@@ -8,14 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
+using ELibrary.Library.Core.DataAccess;
 
 namespace ELibrary.Library.Business.Managers
 {
     public class BookManager : IBookService
     {
         private IBookDal _bookDal;
-        public BookManager(IBookDal bookDal)
+        /* private readonly IQueryableRepository<Book> _queryable; */
+        public BookManager(IBookDal bookDal/*IQueryableRepository<Book> queryable */)
         {
+            /*_queryable = queryable; */
             _bookDal = bookDal;
         }
         [FluentValidationAspect(typeof(BookValidator))]

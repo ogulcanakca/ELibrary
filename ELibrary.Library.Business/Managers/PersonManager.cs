@@ -1,6 +1,7 @@
 ﻿using ELibrary.Library.Business.Abstract;
 using ELibrary.Library.Business.ValidationRules.FluentValidation;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
+using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
 using System;
@@ -14,8 +15,10 @@ namespace ELibrary.Library.Business.Managers
     public class PersonManager : IPersonService
     {
         private IPersonDal _personDal;
-        public PersonManager(IPersonDal personDal)
+        /* private readonly IQueryableRepository<Person> _queryable; */
+        public PersonManager(IPersonDal personDal /* IQueryableRepository<Person> queryable */)
         {
+            /* _queryable = queryable; */
             _personDal = personDal;
         }
         [FluentValidationAspect(typeof(PersonValidator))]
