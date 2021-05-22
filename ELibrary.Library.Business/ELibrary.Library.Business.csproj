@@ -41,7 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBookService.cs" />
+    <Compile Include="Abstract\IPersonService.cs" />
+    <Compile Include="Managers\BookManager.cs" />
+    <Compile Include="Managers\PersonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ELibrary.Library.Core\ELibrary.Library.Core.csproj">
+      <Project>{7489CF52-BC13-4547-8F4F-A690A12984AB}</Project>
+      <Name>ELibrary.Library.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ELibrary.Library.DataAccess\ELibrary.Library.DataAccess.csproj">
+      <Project>{34846B4E-A1DC-410F-AE9D-C5F927B357FD}</Project>
+      <Name>ELibrary.Library.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ELibrary.Library.Entities\ELibrary.Library.Entities.csproj">
+      <Project>{BEAFB06C-47D0-4015-877D-8113FD05700F}</Project>
+      <Name>ELibrary.Library.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

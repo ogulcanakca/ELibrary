@@ -11,6 +11,7 @@ namespace ELibrary.Library.DataAccess.Abstract
 {
     public interface IBookDal:IEntityRepository<Book>
     {
+
         List<BookDetail> GetBookDetails();
     }
 }
