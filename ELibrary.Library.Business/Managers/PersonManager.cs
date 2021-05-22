@@ -1,5 +1,6 @@
 ﻿using ELibrary.Library.Business.Abstract;
 using ELibrary.Library.Business.ValidationRules.FluentValidation;
+using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
 using System;
