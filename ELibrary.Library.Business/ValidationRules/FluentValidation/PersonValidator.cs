@@ -15,7 +15,7 @@ namespace ELibrary.Library.Business.ValidationRules.FluentValidation
             RuleFor(p => p.FirstName).NotEmpty().WithMessage("It has place that was left blank");
             RuleFor(p => p.LastName).NotEmpty().WithMessage("It has place that was left blank");
             RuleFor(p => p.UserName).NotEmpty().WithMessage("It has place that was left blank");
-            RuleFor(p => p.Password).Must(Condition).NotEmpty().WithMessage("It must contain letter and number");
+            RuleFor(p => p.Password)/*.Must(Condition)*/.NotEmpty().WithMessage("It must contain letter and number");
             RuleFor(p => p.Email).Must(Contain).WithMessage("It must contain '@'");
         }
 
@@ -24,9 +24,11 @@ namespace ELibrary.Library.Business.ValidationRules.FluentValidation
             return arg.Contains("@");
         }
 
-        private bool Condition(string arg)
+        /*private bool Condition(string arg)
         {
-            return arg.GetType() == typeof(string);
+            
+            return arg.Contains(Convert.ToString(arg.GetType() != typeof(char)));
         }
+        */
     }
 }

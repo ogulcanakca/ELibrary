@@ -1,6 +1,8 @@
 ﻿using ELibrary.Library.Business.Abstract;
 using ELibrary.Library.Business.ValidationRules.FluentValidation;
+using ELibrary.Library.Core.Aspects.Postsharp.CacheAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
+using ELibrary.Library.Core.CrossCuttingConcerns.Caching.Microsoft;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
@@ -12,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace ELibrary.Library.Business.Managers
 {
+    
     public class PersonManager : IPersonService
     {
         private IPersonDal _personDal;
@@ -21,7 +24,9 @@ namespace ELibrary.Library.Business.Managers
             /* _queryable = queryable; */
             _personDal = personDal;
         }
+
         [FluentValidationAspect(typeof(PersonValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public Person Add(Person person)
         {
             return _personDal.Add(person);
@@ -33,6 +38,7 @@ namespace ELibrary.Library.Business.Managers
 
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Person> GetAll()
         {
             return _personDal.GetList();

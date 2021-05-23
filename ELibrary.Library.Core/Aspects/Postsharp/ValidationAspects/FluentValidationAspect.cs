@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-
 namespace ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects
 {
     [Serializable]

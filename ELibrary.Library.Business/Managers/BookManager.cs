@@ -9,15 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.DataAccess;
+using ELibrary.Library.Core.Aspects.Postsharp.TransactionAspects;
 
 namespace ELibrary.Library.Business.Managers
 {
     public class BookManager : IBookService
     {
         private IBookDal _bookDal;
+        private IPersonDal _personDal;
         /* private readonly IQueryableRepository<Book> _queryable; */
-        public BookManager(IBookDal bookDal/*IQueryableRepository<Book> queryable */)
+        public BookManager(IBookDal bookDal, IPersonDal personDal/*IQueryableRepository<Book> queryable */)
         {
+            _personDal = personDal;
             /*_queryable = queryable; */
             _bookDal = bookDal;
         }
@@ -35,6 +38,13 @@ namespace ELibrary.Library.Business.Managers
         public List<Book> GetAll()
         {
             return _bookDal.GetList();
+        }
+        [TransactionScopeAspect]
+        public void TransactionalOperation(Person person, Book book)
+        {
+            _personDal.Delete(person);
+            // Business Codes
+            _bookDal.Add(book);
         }
 
         public Book GetById(int bookId)

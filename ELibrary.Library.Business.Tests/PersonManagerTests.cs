@@ -17,8 +17,8 @@ namespace ELibrary.Library.Business.Tests
         {
             Mock<IPersonDal> mock = new Mock<IPersonDal>();
             PersonManager pm = new PersonManager(mock.Object);
-            pm.Add(new Person
-            {
+            pm.Add(new Person(
+            /* {
                 Id = 1,
                 FirstName = "Oğulcan",
                 LastName = "Akca",
@@ -29,7 +29,7 @@ namespace ELibrary.Library.Business.Tests
                 DateOfFinishing = DateTime.Now,
                 DateOfGetting = DateTime.Now,
                 IsRead = true
-            });
+            }*/));
 
         }
     }
