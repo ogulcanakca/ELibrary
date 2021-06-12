@@ -1,8 +1,10 @@
 ﻿using ELibrary.Library.Business.Abstract;
 using ELibrary.Library.Business.ValidationRules.FluentValidation;
 using ELibrary.Library.Core.Aspects.Postsharp.CacheAspects;
+using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.CrossCuttingConcerns.Caching.Microsoft;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
@@ -39,6 +41,8 @@ namespace ELibrary.Library.Business.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [LogAspect(typeof(FileLogger))]
+
         public List<Person> GetAll()
         {
             return _personDal.GetList();

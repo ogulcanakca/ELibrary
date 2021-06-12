@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.Core.Aspects.Postsharp.TransactionAspects;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
+using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 
 namespace ELibrary.Library.Business.Managers
 {
@@ -25,6 +27,7 @@ namespace ELibrary.Library.Business.Managers
             _bookDal = bookDal;
         }
         [FluentValidationAspect(typeof(BookValidator))]
+        
         public Book Add(Book book)
         {
             return _bookDal.Add(book);
@@ -34,7 +37,7 @@ namespace ELibrary.Library.Business.Managers
         {
             _bookDal.Delete(book);
         }
-
+        [LogAspect(typeof(DatabaseLogger))]
         public List<Book> GetAll()
         {
             return _bookDal.GetList();

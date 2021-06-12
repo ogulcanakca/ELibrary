@@ -1,0 +1,17 @@
+﻿using log4net;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers
+{
+    public class FileLogger : LoggerService
+    {
+        public FileLogger() : base(LogManager.GetLogger("FileLogger"))
+        {
+
+        }
+    }
+}
