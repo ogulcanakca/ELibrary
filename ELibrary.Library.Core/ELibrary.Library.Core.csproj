@@ -101,7 +101,7 @@
     <Compile Include="CrossCuttingConcerns\Caching\Microsoft\MemoryCacheManager.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Log4NetLayouts\JsonLayout.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Log4NetLayouts\Loggers\DatabaseLogger.cs" />
-    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Log4NetLayouts\Loggers\FileLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Log4NetLayouts\Loggers\JsonFileLogger.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\LoggerService.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogDetail.cs" />

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers
 {
-    public class FileLogger : LoggerService
+    public class JsonFileLogger : LoggerService
     {
-        public FileLogger() : base(LogManager.GetLogger("FileLogger"))
+        public JsonFileLogger() : base(LogManager.GetLogger("JsonFileLogger"))
         {
 
         }

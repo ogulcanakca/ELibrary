@@ -41,7 +41,7 @@ namespace ELibrary.Library.Business.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(FileLogger))]
+        [LogAspect(typeof(JsonFileLogger))]
 
         public List<Person> GetAll()
         {

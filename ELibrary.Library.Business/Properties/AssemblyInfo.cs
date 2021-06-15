@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: LogAspect(typeof(FileLogger), AttributeTargetTypes = "ELibrary.Library.Business.Managers.*")]
+[assembly: LogAspect(typeof(JsonFileLogger), AttributeTargetTypes = "ELibrary.Library.Business.Managers.*")]
 
 
 
