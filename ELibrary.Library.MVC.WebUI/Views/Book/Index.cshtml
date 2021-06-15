@@ -13,6 +13,11 @@
 </head>
 <body>
     <div> 
+        @foreach(var book in Model.Books)
+            {
+                @book.BookName
+                <br>
+            }
     </div>
 </body>
 </html>

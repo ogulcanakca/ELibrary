@@ -19,6 +19,7 @@ namespace ELibrary.Library.Business.Managers
     {
         private IBookDal _bookDal;
         private IPersonDal _personDal;
+        
         /* private readonly IQueryableRepository<Book> _queryable; */
         public BookManager(IBookDal bookDal, IPersonDal personDal/*IQueryableRepository<Book> queryable */)
         {
@@ -26,7 +27,7 @@ namespace ELibrary.Library.Business.Managers
             /*_queryable = queryable; */
             _bookDal = bookDal;
         }
-        [FluentValidationAspect(typeof(BookValidator))]
+       [FluentValidationAspect(typeof(BookValidator))]
         
         public Book Add(Book book)
         {

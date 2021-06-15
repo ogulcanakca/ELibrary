@@ -9,7 +9,6 @@ namespace ELibrary.Library.Business.Abstract
 {
     public interface IPersonService
     {
-
         List<Person> GetAll();
         Person GetById(int Id);
         Person Add(Person person);

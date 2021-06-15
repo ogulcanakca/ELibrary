@@ -1,4 +1,5 @@
 ﻿using ELibrary.Library.Business.Abstract;
+using ELibrary.Library.DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,10 @@ namespace ELibrary.Library.MVC.WebUI.Controllers
     public class BookController : Controller
     {
         private IBookService _bookService;
+        
         public BookController(IBookService bookService)
         {
+            
             _bookService = bookService;
         }
         public ActionResult Index()

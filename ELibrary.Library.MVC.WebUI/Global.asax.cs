@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ELibrary.Library.Business.DependencyResolvers.Ninject;
+using ELibrary.Library.Core.Utilities.Mvc.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,7 @@ namespace ELibrary.Library.MVC.WebUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
         }
     }
 }
