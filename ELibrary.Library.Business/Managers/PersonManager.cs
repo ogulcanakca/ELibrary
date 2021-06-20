@@ -19,7 +19,7 @@ namespace ELibrary.Library.Business.Managers
     
     public class PersonManager : IPersonService
     {
-        private IPersonDal _personDal;
+        private readonly IPersonDal _personDal;
         /* private readonly IQueryableRepository<Person> _queryable; */
         public PersonManager(IPersonDal personDal /* IQueryableRepository<Person> queryable */)
         {
@@ -27,8 +27,8 @@ namespace ELibrary.Library.Business.Managers
             _personDal = personDal;
         }
 
-        [FluentValidationAspect(typeof(PersonValidator))]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        //[FluentValidationAspect(typeof(PersonValidator))]
+        //[CacheRemoveAspect(typeof(MemoryCacheManager))]
         public Person Add(Person person)
         {
             return _personDal.Add(person);
@@ -40,8 +40,8 @@ namespace ELibrary.Library.Business.Managers
 
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(JsonFileLogger))]
+        //[CacheAspect(typeof(MemoryCacheManager))]
+        //[LogAspect(typeof(JsonFileLogger))]
 
         public List<Person> GetAll()
         {
@@ -54,7 +54,7 @@ namespace ELibrary.Library.Business.Managers
             return _personDal.Get(p=>p.Id ==Id);
 
         }
-        [FluentValidationAspect(typeof(PersonValidator))]
+        //[FluentValidationAspect(typeof(PersonValidator))]
         public Person Update(Person person)
         {
             return _personDal.Update(person);

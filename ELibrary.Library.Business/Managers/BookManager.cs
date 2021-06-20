@@ -15,10 +15,12 @@ using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 
 namespace ELibrary.Library.Business.Managers
 {
+
     public class BookManager : IBookService
     {
-        private IBookDal _bookDal;
-        private IPersonDal _personDal;
+       
+        private  IBookDal _bookDal;
+        private  IPersonDal _personDal;
         
         /* private readonly IQueryableRepository<Book> _queryable; */
         public BookManager(IBookDal bookDal, IPersonDal personDal/*IQueryableRepository<Book> queryable */)
@@ -27,7 +29,8 @@ namespace ELibrary.Library.Business.Managers
             /*_queryable = queryable; */
             _bookDal = bookDal;
         }
-       [FluentValidationAspect(typeof(BookValidator))]
+       //[FluentValidationAspect(typeof(BookValidator))]
+       //[LogAspect(typeof(DatabaseLogger))]
         
         public Book Add(Book book)
         {
@@ -39,6 +42,7 @@ namespace ELibrary.Library.Business.Managers
             _bookDal.Delete(book);
         }
         [LogAspect(typeof(DatabaseLogger))]
+
         public List<Book> GetAll()
         {
             return _bookDal.GetList();
@@ -55,7 +59,7 @@ namespace ELibrary.Library.Business.Managers
         {
             return _bookDal.Get(p=>p.BookId==bookId);
         }
-        [FluentValidationAspect(typeof(BookValidator))]
+       [FluentValidationAspect(typeof(BookValidator))]
         public Book Update(Book book)
         {
             return _bookDal.Update(book);

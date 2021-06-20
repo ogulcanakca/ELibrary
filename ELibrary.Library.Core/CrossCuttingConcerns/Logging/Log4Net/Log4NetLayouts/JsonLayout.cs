@@ -14,7 +14,7 @@ namespace ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayo
     {
         public override void ActivateOptions()
         {
-            throw new NotImplementedException();
+           
         }
 
         public override void Format(TextWriter writer, LoggingEvent loggingEvent)

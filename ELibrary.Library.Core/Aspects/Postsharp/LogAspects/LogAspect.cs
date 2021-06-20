@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ELibrary.Library.Core.Aspects.Postsharp.LogAspects
 {
     [Serializable]
@@ -16,7 +17,7 @@ namespace ELibrary.Library.Core.Aspects.Postsharp.LogAspects
     public class LogAspect : OnMethodBoundaryAspect
     {
         
-        private Type _loggerType;
+        private  Type _loggerType;
         [NonSerialized]
         private LoggerService _loggerService;
         public LogAspect(Type loggerType)
@@ -24,16 +25,19 @@ namespace ELibrary.Library.Core.Aspects.Postsharp.LogAspects
             _loggerType = loggerType;
         }
 
+
         public override void RuntimeInitialize(MethodBase method)
         {
-
             if (_loggerType.BaseType != typeof(LoggerService))
             {
                 throw new Exception("Wrong logger type.");
             }
-            
+
             _loggerService = (LoggerService)Activator.CreateInstance(_loggerType);
             base.RuntimeInitialize(method);
+
+         
+            
         }
         public override void OnEntry(MethodExecutionArgs args)
         {

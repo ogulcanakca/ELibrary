@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net
 {
-
+    [Serializable]
     public class LoggerService
     {
-        [NonSerialized]
         private ILog _log;
         public LoggerService(ILog log)
         {

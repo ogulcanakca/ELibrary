@@ -12,7 +12,7 @@ namespace ELibrary.Library.Core.Utilities.Mvc.Infrastructure
 {
     public class NinjectControllerFactory : DefaultControllerFactory
     {
-        private IKernel _kernel;
+        private  IKernel _kernel;
         public NinjectControllerFactory(INinjectModule module)
         {
             _kernel = new StandardKernel(module);

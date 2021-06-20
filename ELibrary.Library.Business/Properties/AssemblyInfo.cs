@@ -1,5 +1,5 @@
 ﻿using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
-using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
+
 using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -16,10 +16,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: LogAspect(typeof(JsonFileLogger), AttributeTargetTypes = "ELibrary.Library.Business.Managers.*")]
 
-
-
+//[assembly: LogAspect(typeof(JsonFileLogger), AttributeTargetTypes = "ELibrary.Library.Business.Managers.BookManager*")]
 
 // ComVisible özniteliğinin false olarak ayarlanması bu bütünleştirilmiş koddaki türleri
 // COM bileşenleri için görünmez yapar. Bu bütünleştirilmiş koddaki bir türe
