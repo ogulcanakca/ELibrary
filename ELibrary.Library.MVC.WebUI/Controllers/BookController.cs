@@ -1,5 +1,5 @@
 ﻿using ELibrary.Library.Business.Abstract;
-using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;
 using System;
@@ -16,10 +16,10 @@ namespace ELibrary.Library.MVC.WebUI.Controllers
     public class BookController : Controller
     {
         private IBookService _bookService;
-        private IPersonService _personService;
-        public BookController(IBookService bookService, IPersonService personService)
+        //private IPersonService _personService;
+        public BookController(IBookService bookService /* ,IPersonService personService */ )
         {
-            _personService = personService;    
+           // _personService = personService;    
             _bookService = bookService;
         }
         public ActionResult Index()

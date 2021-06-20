@@ -4,7 +4,7 @@ using ELibrary.Library.Core.Aspects.Postsharp.CacheAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.CrossCuttingConcerns.Caching.Microsoft;
-using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.DataAccess.Abstract;
 using ELibrary.Library.Entities.Concrete;

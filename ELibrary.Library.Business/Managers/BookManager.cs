@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.Core.Aspects.Postsharp.TransactionAspects;
-using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Log4NetLayouts.Loggers;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 
 namespace ELibrary.Library.Business.Managers
@@ -41,13 +41,13 @@ namespace ELibrary.Library.Business.Managers
         {
             _bookDal.Delete(book);
         }
-        [LogAspect(typeof(DatabaseLogger))]
+       // [LogAspect(typeof(DatabaseLogger))]
 
         public List<Book> GetAll()
         {
             return _bookDal.GetList();
         }
-        [TransactionScopeAspect]
+        //[TransactionScopeAspect]
         public void TransactionalOperation(Person person, Book book)
         {
             _personDal.Delete(person);
@@ -59,7 +59,7 @@ namespace ELibrary.Library.Business.Managers
         {
             return _bookDal.Get(p=>p.BookId==bookId);
         }
-       [FluentValidationAspect(typeof(BookValidator))]
+       //[FluentValidationAspect(typeof(BookValidator))]
         public Book Update(Book book)
         {
             return _bookDal.Update(book);
