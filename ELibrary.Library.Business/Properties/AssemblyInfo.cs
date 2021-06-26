@@ -1,6 +1,7 @@
-﻿using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
-
-using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
+﻿using ELibrary.Library.Core.Aspects.Postsharp.ExceptionAspects;
+using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
+using ELibrary.Library.Core.Aspects.Postsharp.PerformanceAspects;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -16,8 +17,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-[assembly: LogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "ELibrary.Library.Business.Managers.*")]
+[assembly: ExceptionLogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "ELibrary.Library.Business.Concrete.Managers.*")]
+[assembly: PerformanceCounterAspect(AttributeTargetTypes = "ELibrary.Library.Business.Concrete.Managers.*")]
+//[assembly: LogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "ELibrary.Library.Business.Concrete.Managers.*")]
 
 // ComVisible özniteliğinin false olarak ayarlanması bu bütünleştirilmiş koddaki türleri
 // COM bileşenleri için görünmez yapar. Bu bütünleştirilmiş koddaki bir türe

@@ -9,7 +9,7 @@ namespace ELibrary.Library.Business.Abstract
 {
     public interface IBookService
     {
-        void TransactionalOperation(Person person, Book book);
+        void TransactionalOperation(Book book, Person person);
         List<Book> GetAll();
         Book GetById(int bookId);
         Book Add(Book book);

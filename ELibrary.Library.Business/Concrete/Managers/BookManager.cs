@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.Core.Aspects.Postsharp.TransactionAspects;
-using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
+using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
+using ELibrary.Library.Core.Aspects.Postsharp.PerformanceAspects;
 
 namespace ELibrary.Library.Business.Managers
 {
-
+    [LogAspect(typeof(DatabaseLogger))]
     public class BookManager : IBookService
     {
        
@@ -41,18 +42,22 @@ namespace ELibrary.Library.Business.Managers
         {
             _bookDal.Delete(book);
         }
-       // [LogAspect(typeof(DatabaseLogger))]
-
+        
+        [PerformanceCounterAspect(2)]
         public List<Book> GetAll()
         {
             return _bookDal.GetList();
         }
-        //[TransactionScopeAspect]
-        public void TransactionalOperation(Person person, Book book)
+        [TransactionScopeAspect]
+        [FluentValidationAspect(typeof(PersonValidator))]
+        [FluentValidationAspect(typeof(BookValidator))]
+
+        public void TransactionalOperation(Book book, Person person)
         {
+            _bookDal.Add(book);
             _personDal.Delete(person);
             // Business Codes
-            _bookDal.Add(book);
+            
         }
 
         public Book GetById(int bookId)
