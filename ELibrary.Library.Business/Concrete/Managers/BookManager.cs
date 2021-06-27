@@ -45,7 +45,7 @@ namespace ELibrary.Library.Business.Managers
         }
         
         [PerformanceCounterAspect(2)]
-        
+        [SecuredOperation(Roles = "Admin, Editor, Student")]
         public List<Book> GetAll()
         {
             return _bookDal.GetList();

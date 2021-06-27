@@ -44,7 +44,7 @@ namespace ELibrary.Library.Business.Managers
 
         //[CacheAspect(typeof(MemoryCacheManager))]
         //[LogAspect(typeof(JsonFileLogger))]
-        [SecuredOperation(Roles = "Admin, Editor, Student")]
+        
         public List<Person> GetAll()
         {
             return _personDal.GetList();
