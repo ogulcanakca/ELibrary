@@ -11,5 +11,6 @@ namespace ELibrary.Library.DataAccess.Abstract
 {
     public interface IPersonDal : IEntityRepository<Person>
     {
+        List<UserRoleItem> GetUserRoleItems(Person person);
     }
 }

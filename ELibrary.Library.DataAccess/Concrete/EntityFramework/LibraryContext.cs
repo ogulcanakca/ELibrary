@@ -17,6 +17,8 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<Person> People { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new BookMap());

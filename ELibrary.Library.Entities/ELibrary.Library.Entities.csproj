@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComplexTypes\BookDetail.cs" />
+    <Compile Include="ComplexTypes\UserRoleItem.cs" />
     <Compile Include="Concrete\Book.cs" />
     <Compile Include="Concrete\Person.cs" />
+    <Compile Include="Concrete\Role.cs" />
+    <Compile Include="Concrete\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

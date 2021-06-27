@@ -58,6 +58,8 @@
     <Compile Include="Concrete\EntityFramework\LibraryContext.cs" />
     <Compile Include="Concrete\EntityFramework\Mapping\BookMap.cs" />
     <Compile Include="Concrete\EntityFramework\Mapping\PersonMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\RoleMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\UserRoleMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

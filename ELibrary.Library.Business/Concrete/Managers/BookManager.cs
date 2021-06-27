@@ -13,6 +13,7 @@ using ELibrary.Library.Core.Aspects.Postsharp.TransactionAspects;
 using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.PerformanceAspects;
+using ELibrary.Library.Core.Aspects.Postsharp.AuthorizationAspects;
 
 namespace ELibrary.Library.Business.Managers
 {
@@ -44,6 +45,7 @@ namespace ELibrary.Library.Business.Managers
         }
         
         [PerformanceCounterAspect(2)]
+        
         public List<Book> GetAll()
         {
             return _bookDal.GetList();

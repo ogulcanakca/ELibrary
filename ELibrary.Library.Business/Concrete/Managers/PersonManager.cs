@@ -1,5 +1,6 @@
 ﻿using ELibrary.Library.Business.Abstract;
 using ELibrary.Library.Business.ValidationRules.FluentValidation;
+using ELibrary.Library.Core.Aspects.Postsharp.AuthorizationAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.CacheAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.ValidationAspects;
@@ -7,6 +8,7 @@ using ELibrary.Library.Core.CrossCuttingConcerns.Caching.Microsoft;
 using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using ELibrary.Library.Core.DataAccess;
 using ELibrary.Library.DataAccess.Abstract;
+using ELibrary.Library.Entities.ComplexTypes;
 using ELibrary.Library.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace ELibrary.Library.Business.Managers
 
         //[CacheAspect(typeof(MemoryCacheManager))]
         //[LogAspect(typeof(JsonFileLogger))]
-
+        [SecuredOperation(Roles = "Admin, Editor, Student")]
         public List<Person> GetAll()
         {
             return _personDal.GetList();
@@ -54,6 +56,17 @@ namespace ELibrary.Library.Business.Managers
             return _personDal.Get(p=>p.Id ==Id);
 
         }
+
+        public Person GetByUserNameAndPassword(string userName, string password)
+        {
+            return _personDal.Get(u => u.UserName == userName & u.Password == password);
+        }
+
+        public List<UserRoleItem> GetUserRoleItems(Person person)
+        {
+            return _personDal.GetUserRoleItems(person);
+        }
+
         //[FluentValidationAspect(typeof(PersonValidator))]
         public Person Update(Person person)
         {
