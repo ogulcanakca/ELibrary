@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELibrary.Library.MVC.WebUI"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELibrary.Library.MVC.WebUI.Tests", "ELibrary.Library.MVC.WebUI.Tests\ELibrary.Library.MVC.WebUI.Tests.csproj", "{FED1D4FF-E510-4BD9-A9E4-9029D0F6F06A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELibrary.Library.WebApi", "ELibrary.Library.WebApi\ELibrary.Library.WebApi.csproj", "{85A5196C-ADD0-4C6B-90F4-EE4F5B899C69}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ELibrary.Library.WCFService", "ELibrary.Library.WCFService\", "{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
@@ -42,6 +40,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ELibrary.Library.WCFService
 		SlnRelativePath = "ELibrary.Library.WCFService\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELibrary.Library.WebApi", "ELibrary.Library.WebApi\ELibrary.Library.WebApi.csproj", "{C565DE93-893C-48ED-A3CF-B7BF07D469CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,14 +81,14 @@ Global
 		{FED1D4FF-E510-4BD9-A9E4-9029D0F6F06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FED1D4FF-E510-4BD9-A9E4-9029D0F6F06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FED1D4FF-E510-4BD9-A9E4-9029D0F6F06A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85A5196C-ADD0-4C6B-90F4-EE4F5B899C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85A5196C-ADD0-4C6B-90F4-EE4F5B899C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85A5196C-ADD0-4C6B-90F4-EE4F5B899C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85A5196C-ADD0-4C6B-90F4-EE4F5B899C69}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C565DE93-893C-48ED-A3CF-B7BF07D469CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C565DE93-893C-48ED-A3CF-B7BF07D469CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C565DE93-893C-48ED-A3CF-B7BF07D469CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C565DE93-893C-48ED-A3CF-B7BF07D469CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

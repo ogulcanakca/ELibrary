@@ -12,7 +12,7 @@ namespace ELibrary.Library.Core.Aspects.Postsharp.AuthorizationAspects
     public class SecuredOperation:OnMethodBoundaryAspect
     {
         public string Roles { get; set; }
-        public bool isAuthorized { get; set; }
+        public bool isAuthorized = false;
 
         public override void OnEntry(MethodExecutionArgs args)
         {

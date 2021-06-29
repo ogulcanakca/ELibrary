@@ -10,10 +10,10 @@ namespace ELibrary.Library.Core.Aspects.Postsharp.Security.Web
 {
     public class AuthenticationHelper
     {
-        public static void CreateAuthCookie(Guid id, string userName, string email, DateTime expiration, string[] roles,
+        public static void CreateAuthCookie(Guid id, string userName, string email, DateTime expirationBegan,DateTime expirationEnd, bool IsRead, string[] roles,
             bool rememberMe, string firstName, string lastName)
         {
-            var authTicket = new FormsAuthenticationTicket(1, userName, DateTime.Now, expiration, rememberMe, CreateAuthTags(email, roles, firstName, lastName, id));
+            var authTicket = new FormsAuthenticationTicket(1, userName, DateTime.Now, expirationEnd, rememberMe, CreateAuthTags(email, roles, firstName, lastName, id));
             string encTicket = FormsAuthentication.Encrypt(authTicket);
             HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
         }

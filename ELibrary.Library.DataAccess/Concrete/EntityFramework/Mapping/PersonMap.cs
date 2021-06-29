@@ -14,7 +14,7 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework.Mapping
         {
             ToTable(@"People", @"dbo");
             HasKey(x => x.Id);
-            Property(x => x.Id).HasColumnName("Id");
+            
             Property(x => x.BookId).HasColumnName("BookId");
             Property(x => x.FirstName).HasColumnName("FirstName");
             Property(x => x.LastName).HasColumnName("LastName");

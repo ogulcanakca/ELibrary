@@ -44,11 +44,21 @@ namespace ELibrary.Library.Business.Managers
             _bookDal.Delete(book);
         }
         
-        [PerformanceCounterAspect(2)]
-        [SecuredOperation(Roles = "Admin, Editor, Student")]
+        //[PerformanceCounterAspect(2)]
+        //[SecuredOperation(Roles = "Admin, Editor, Student")]
         public List<Book> GetAll()
         {
-            return _bookDal.GetList();
+            return _bookDal.GetList().Select(b => new Book
+            {
+                BookId = b.BookId,
+                Author = b.Author,
+                BookName = b.BookName,
+                BookType=b.BookType,
+                 DateOfFinishing = b.DateOfFinishing,
+                 DateOfGetting = b.DateOfGetting,
+                 PageNumber = b.PageNumber,
+                 Translator = b.Translator
+            }).ToList();
         }
         [TransactionScopeAspect]
         [FluentValidationAspect(typeof(PersonValidator))]

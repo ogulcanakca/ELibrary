@@ -12,7 +12,7 @@ namespace ELibrary.Library.DataAccess.Concrete.EntityFramework.Mapping
     {
         public UserRoleMap()
         {
-            ToTable(@"Roles", @"dbo");
+            ToTable(@"UserRoles", @"dbo");
             HasKey(x => x.Id);
             Property(x => x.RoleId).HasColumnName("RoleId");
 

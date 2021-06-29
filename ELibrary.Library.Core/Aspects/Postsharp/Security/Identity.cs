@@ -18,5 +18,8 @@ namespace ELibrary.Library.Core.Aspects.Postsharp.Security
         public string Email { get; set; }
         public string[] Roles { get; set; }
 
+
+      
+
     }
 }

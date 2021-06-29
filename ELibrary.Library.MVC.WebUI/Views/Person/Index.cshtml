@@ -1,0 +1,23 @@
+﻿@model ELibrary.Library.MVC.WebUI.PersonListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @foreach (var people in Model.People)
+        {
+            @people.FirstName
+            <br>
+        }
+    </div>
+</body>
+</html>
