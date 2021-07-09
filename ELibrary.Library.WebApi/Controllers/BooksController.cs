@@ -16,7 +16,7 @@ namespace ELibrary.Library.WebApi.Controllers
         {
             _bookService = bookService;
         }
-        public List<Book> Get()
+        public IEnumerable<Book> Get()
         {
             return _bookService.GetAll();
         }

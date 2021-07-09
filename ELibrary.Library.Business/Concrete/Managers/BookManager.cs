@@ -14,25 +14,30 @@ using ELibrary.Library.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using ELibrary.Library.Core.Aspects.Postsharp.LogAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.PerformanceAspects;
 using ELibrary.Library.Core.Aspects.Postsharp.AuthorizationAspects;
+using AutoMapper;
+using ELibrary.Library.Core.Utilities.Mappings;
 
 namespace ELibrary.Library.Business.Managers
 {
+    
     [LogAspect(typeof(DatabaseLogger))]
     public class BookManager : IBookService
     {
-       
+        
         private  IBookDal _bookDal;
         private  IPersonDal _personDal;
+        private IMapper _mapper;
         
         /* private readonly IQueryableRepository<Book> _queryable; */
-        public BookManager(IBookDal bookDal, IPersonDal personDal/*IQueryableRepository<Book> queryable */)
+        public BookManager(IBookDal bookDal, IPersonDal personDal/*IQueryableRepository<Book> queryable */, IMapper mapper)
         {
+            _mapper = mapper;
             _personDal = personDal;
             /*_queryable = queryable; */
             _bookDal = bookDal;
         }
-       //[FluentValidationAspect(typeof(BookValidator))]
-       //[LogAspect(typeof(DatabaseLogger))]
+       [FluentValidationAspect(typeof(BookValidator))]
+       [LogAspect(typeof(DatabaseLogger))]
         
         public Book Add(Book book)
         {
@@ -44,22 +49,31 @@ namespace ELibrary.Library.Business.Managers
             _bookDal.Delete(book);
         }
         
-        //[PerformanceCounterAspect(2)]
-        //[SecuredOperation(Roles = "Admin, Editor, Student")]
+        [PerformanceCounterAspect(2)]
+        [SecuredOperation(Roles = "Admin, Editor, Student")]
         public List<Book> GetAll()
         {
-            return _bookDal.GetList().Select(b => new Book
-            {
-                BookId = b.BookId,
-                Author = b.Author,
-                BookName = b.BookName,
-                BookType=b.BookType,
-                 DateOfFinishing = b.DateOfFinishing,
-                 DateOfGetting = b.DateOfGetting,
-                 PageNumber = b.PageNumber,
-                 Translator = b.Translator
-            }).ToList();
+            //return _bookDal.GetList().Select(b => new Book
+            //{
+            //    BookId = b.BookId,
+            //    Author = b.Author,
+            //    BookName = b.BookName,
+            //    BookType = b.BookType,
+            //    DateOfFinishing = b.DateOfFinishing,
+            //    DateOfGetting = b.DateOfGetting,
+            //    PageNumber = b.PageNumber,
+            //    Translator = b.Translator
+
+            //    /* Yukarıdaki kodu mapping yaparak da oluşturabiliriz, her metodda uzun uzun yazmak yerine mapping yaparız. Business'a AutoMapper'ı ekle.*/
+            /*        //}).ToList();                            ↓
+                                                                ↓
+                                                                ↓                                                                                                    */
+            var books = _mapper.Map<List<Book>>(_bookDal.GetList());
+            return books;
+
         }
+       
+
         [TransactionScopeAspect]
         [FluentValidationAspect(typeof(PersonValidator))]
         [FluentValidationAspect(typeof(BookValidator))]
@@ -76,7 +90,7 @@ namespace ELibrary.Library.Business.Managers
         {
             return _bookDal.Get(p=>p.BookId==bookId);
         }
-       //[FluentValidationAspect(typeof(BookValidator))]
+        [FluentValidationAspect(typeof(BookValidator))]
         public Book Update(Book book)
         {
             return _bookDal.Update(book);

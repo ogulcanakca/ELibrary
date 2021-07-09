@@ -22,6 +22,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ELibrary.Library.WCFService", "ELibrary.Library.WCFService\", "{6BFCCD75-F4AF-459E-911E-0AF6CB5040E1}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{07cd3d1e-0bb4-494c-a76b-b693fe37f303}|ELibrary.Library.Business.dll;{7489CF52-BC13-4547-8F4F-A690A12984AB}|ELibrary.Library.Core.dll;{34846B4E-A1DC-410F-AE9D-C5F927B357FD}|ELibrary.Library.DataAccess.dll;{BEAFB06C-47D0-4015-877D-8113FD05700F}|ELibrary.Library.Entities.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_11273"
 		Debug.AspNetCompiler.PhysicalPath = "ELibrary.Library.WCFService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_11273\"
